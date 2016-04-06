@@ -1,0 +1,50 @@
+== README
+
+The shopping cart portion of this project was implinted heavily with the help of this github project: https://github.com/railscasts/141-paypal-basics
+
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+Need to install the following to get images to work
+  sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev 
+  
+  
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+Test Specifications:
+title: string
+description: text
+price: integer
+stock: intenger
+images: array of strings
+
+
+- title must be present
+- title must be between 2 and 50 characters
+- description must be present
+- description must be between 10 and 1024 characters
+- price must be postive
+- stock must be postive
