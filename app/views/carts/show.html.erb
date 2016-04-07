@@ -1,5 +1,6 @@
-<h1></h1> Shopping Cart </h1>
+<h1>Shopping Cart </h1>
 
+<% if  @cart.line_items.length != 0 %>
 <table id="line_items">
   <tr>
     <th>Product</th>
@@ -21,7 +22,9 @@
     </td>
   </tr>
 </table>
-
+<% else %>
+<p> You don't have anything in your cart.</p>
+<% end %>
 <p>
   <%= link_to "Continue Shopping", products_url %> |
   <%= link_to "Checkout", @cart.paypal_url(products_url, payment_notifications_url) %>
