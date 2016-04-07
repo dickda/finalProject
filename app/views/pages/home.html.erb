@@ -6,37 +6,35 @@
 to the foolest...
     </h2>
     <%= link_to "Subscribe now!","", class: "btn btn-lg btn-success" %>
-</div>
-
+</div class="center">
+<h2>
+    View Our Latest Products
+</h2>
 <div class="row">
     <div class="col-lg-4">
-        <h3 class="midrow">
-            Great Aricle #1
+        <h3 class="midrow, center">
+        <%=  link_to Product.last(3)[0].title , Product.last(3)[0] %>
         </h3>
-        <h2 class="left">
-            Eos id omnes omittam, an delenit ceteros liberavisse sit. Ne mea adipisci
-ng moderatius vituperata, quo ad tota admodum.  
+        <h2 class="left, thumbnail">
+            <%= image_tag Product.last(3)[0].images_url(:thumb) if Product.last(3)[0].images? %> 
         </h2>
-        <p><%= link_to "Read the article", "", class: "btn btn-warning btn-small" %></p>
+
     </div>
         <div class="col-lg-4">
-        <h3 class="midrow">
-            Magnum Opus
+        <h3 class="midrow, center">
+            <%= link_to Product.last(2)[0].title , Product.last(2)[0] %>
         </h3>
-        <h2 class="left">
-            Fierent appareat at quo. Sed rebum homero et, aeterno assentior temporibu
-s no pro.
+        <h2 class="left, thumbnail">
+            <%= image_tag Product.last(2)[0].images_url(:thumb) if Product.last(2)[0].images? %>
         </h2>
-        <p><%= link_to "Read the article", "", class: "btn btn-warning btn-small" %></p>
+
     </div>
         <div class="col-lg-4">
-        <h3 class="midrow">
-            I'm a genious
+        <h3 class="midrow, center">
+             <%= link_to Product.last.title , Product.last %>
         </h3>
-        <h2 class="left">
-            Sea tation scribentur intellegebat no, novum atomorum oportere eam ne. Me
-l an iisque aeterno oblique, eu per luptatum conclusionemque.
+        <h2 class="center, thumbnail">
+            <%= image_tag Product.last.images_url(:thumb) if Product.last.images? %>
         </h2>
-        <p><%= link_to "Read the article", "", class: "btn btn-warning btn-small" %></p>
     </div>
 </div>
