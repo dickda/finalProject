@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405022020) do
+ActiveRecord::Schema.define(version: 20160409154724) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -54,9 +61,19 @@ ActiveRecord::Schema.define(version: 20160405022020) do
     t.text     "description"
     t.float    "price"
     t.integer  "stock"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "screenshot_id"
     t.text     "images"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  end
+
+  add_index "products", ["screenshot_id"], name: "index_products_on_screenshot_id"
+
+  create_table "screenshots", force: :cascade do |t|
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "product_id"
   end
 
 end

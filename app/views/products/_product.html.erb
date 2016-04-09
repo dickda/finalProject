@@ -2,7 +2,7 @@
         <div class="col-xs-6 col-md-3">
                 <h3 class= "midrow"> <%= link_to product.title , product %></h3>
        
-                 <div class="thumbnail"><%= image_tag product.images_url(:thumb) if product.images? %> </div>
+                 <div class="thumbnail"><%= image_tag product.screenshots.first.image_url(:thumb) if product.screenshots.first.image? %> </div>
                 <div>Price: $ <%= product.price %></div>
         </div>
 </div>

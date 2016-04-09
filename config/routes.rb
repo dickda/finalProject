@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :screenshots
   resources :payment_notifications
   resources :orders
   root 'pages#home'

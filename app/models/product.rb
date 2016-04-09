@@ -3,6 +3,6 @@ class Product < ActiveRecord::Base
   validates :description, presence: true, length: {minimum:10, maximum:1024}
   validates :price, numericality: {greater_than_or_equal_to: 0}
   validates :stock, numericality: {greater_than_or_equal_to: 0}
-  mount_uploader :images, ImageUploader
-  serialize :images
+  has_many :screenshots
+  accepts_nested_attributes_for :screenshots, :allow_destroy => true
 end
