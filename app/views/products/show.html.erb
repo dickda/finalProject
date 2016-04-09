@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-    <div class="media-left media-middle"><%= image_tag @product.screenshots.first.image_url(:thumb) if @product.screenshots.first %> </div>
+    <div class="media-left media-middle"><%= image_tag @product.screenshots.first.image_url(:thumb) if @product.screenshots.first.image? %> </div>
     <div class = " media-body">
     <div><h3> <%= link_to @product.title , @product %></h3></div>
     <div>Price: $ <%= @product.price %></div>

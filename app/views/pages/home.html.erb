@@ -16,7 +16,7 @@ to the foolest...
         <%=  link_to Product.last(3)[0].title , Product.last(3)[0] %>
         </h3>
         <h2 class="left, thumbnail">
-            <%= image_tag Product.last(3)[0].images_url(:thumb) if Product.last(3)[0].images? %> 
+            <%= image_tag Product.last(3)[0].screenshots.first.image_url(:thumb) if Product.last(3)[0].screenshots.first.image? %> 
         </h2>
 
     </div>
@@ -25,7 +25,7 @@ to the foolest...
             <%= link_to Product.last(2)[0].title , Product.last(2)[0] %>
         </h3>
         <h2 class="left, thumbnail">
-            <%= image_tag Product.last(2)[0].images_url(:thumb) if Product.last(2)[0].images? %>
+            <%= image_tag Product.last(2)[0].screenshots.first.image_url(:thumb) if Product.last(2)[0].screenshots.first.image? %>
         </h2>
 
     </div>
@@ -34,7 +34,7 @@ to the foolest...
              <%= link_to Product.last.title , Product.last %>
         </h3>
         <h2 class="center, thumbnail">
-            <%= image_tag Product.last.images_url(:thumb) if Product.last.images? %>
+            <%= image_tag Product.last.screenshots.first.image_url(:thumb) if Product.last.screenshots.first.image? %>
         </h2>
     </div>
 </div>

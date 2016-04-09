@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @project.screenshots.new
+    @product.screenshots.new
   end
 
   # POST /products

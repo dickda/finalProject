@@ -38,7 +38,10 @@
         Screenshots
       <% end %>
       <div class="col-sm-10">
-        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]', :class => 'form-control' %>
+        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]'%>
+      </div>
+        <div class="col-sm-10">
+        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]'%>
       </div>
     <% end %>
   </div>
