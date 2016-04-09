@@ -32,16 +32,13 @@
       <%= f.number_field :stock %>
     </div>
   </div>
-  <div class="form-group">
+    <div class="form-group">
     <%= f.fields_for :screenshots, @product.screenshots do |f_screenshot| %>
       <%= f_screenshot.label :image, :class => 'col-sm-2 control-label' do %>
         Screenshots
       <% end %>
       <div class="col-sm-10">
-        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]'%>
-      </div>
-        <div class="col-sm-10">
-        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]'%>
+        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]' %>
       </div>
     <% end %>
   </div>

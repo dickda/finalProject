@@ -32,7 +32,9 @@ class ProductsController < ApplicationController
       if @product.save
           if params[:screenshots_attributes]
             params[:screenshots_attributes].each do |screenshot|
-              @product.screenshots.create(image: screenshot[:image])
+              if screenshot[:image]
+                @product.screenshots.create(image: screenshot[:image])
+              end
             end
           end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -82,6 +84,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :stock, :screenshots_attributes => [:image])
+      params.require(:product).permit(:title, :description, :price, :stock, :screenshots_attributes => [:product_id, :image, :_destroy])
     end
 end

@@ -58,3 +58,22 @@ div.description,.media-body p {
   font-size: 18px
   
 }
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 80%;
+      margin: auto;
+  }
+  
+  #productPictures{
+    float:left;
+    max-width:800px;
+    
+  }
+  
+  #productInfo{
+    margin: 20px;
+  }
+  
+  .thumbnail > img{
+    max-height:189px;
+  }
