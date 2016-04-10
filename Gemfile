@@ -41,6 +41,8 @@ gem 'rmagick'
 # use this forBootstarp
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'bootswatch-rails'
+
 #store
 gem 'activemerchant'
 

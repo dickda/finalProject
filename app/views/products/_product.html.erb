@@ -3,6 +3,6 @@
                 <h3 class= "midrow"> <%= link_to product.title , product %></h3>
        
                  <div class="thumbnail"><%= image_tag product.screenshots.first.image_url(:thumb) if product.screenshots.length != 0 %> </div>
-                <div>Price: $ <%=number_to_currency(product.price, :unit => "$") %></div>
+                <div>Price:  <%=number_to_currency(product.price, :unit => "$") %></div>
         </div>
 </div>
