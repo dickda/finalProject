@@ -48,7 +48,7 @@
   </div>
 
     <div class = " media-body center" id = "productInfo">
-    <div><h3> <%= link_to @product.title , @product %> - $ <%= @product.price %> </h3></div>
+    <div><h3> <%= link_to @product.title , @product %> - <%= number_to_currency(@product.price, :unit => "$") %> </h3></div>
         <div class = "description"><p> <%= @product.description %></p></div>
    </div>
          <div class="actions, media-right">

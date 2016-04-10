@@ -1,3 +1,8 @@
+<script style="javascript">
+  function addImages() {
+      document.getElementById("imagesGroup").innerHTML  = document.getElementById("imagesGroup").innerHTML  + '<div class="col-sm-10"><input type="file" id="product_screenshots_attributes_0_image" name="product[screenshots_attributes][][image]" multiple="multiple"></div>';
+  }
+</script>
 <%= form_for  @product, :html => {:multipart => true, :class => "form-horizontal product" }  do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -32,16 +37,22 @@
       <%= f.number_field :stock %>
     </div>
   </div>
+
+      <%= f.label :image, :class => 'col-sm-2 control-label' do %>
+        Images
+      <% end %>
+       <a href = "#" id="addMoreImages" onclick="addImages();" class = "btn btn-primary center" style="color:white">Add More Images</a>
+
+  <div id="imagesGroup"
     <div class="form-group">
     <%= f.fields_for :screenshots, @product.screenshots do |f_screenshot| %>
-      <%= f_screenshot.label :image, :class => 'col-sm-2 control-label' do %>
-        Screenshots
-      <% end %>
       <div class="col-sm-10">
         <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]' %>
       </div>
     <% end %>
   </div>
+  </div>
+   
  
   <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
