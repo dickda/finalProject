@@ -4,7 +4,28 @@ class PaymentNotificationsController < ApplicationController
   # POST /payment_notifications.json
 
   def create
-    PaymentNotification.create!(:params => params, :cart_id => params[:invoice], :status => params[:payment_status], :transaction_id => params[:txn_id])
+        PaymentNotification.create!(:params => params, :cart_id => params[:invoice], :status => params[:payment_status], :transaction_id => params[:txn_id])
     render :nothing => true
+    subtractProducts( params[:invoice], :status)
+
   end
+  
+  def subtractProducts (cart_id, status)
+    if status != "Completed"
+      lineItmes = LineItem.where(:cart_id => cart_id)
+      lineItmes.each do |li|
+        product_id = li.product_id
+        logger.info product_id
+        p = Product.find(product_id)
+        p.stock = p.stock - 1
+        logger.info  p.stock 
+        p.save!
+     end
+     
+    end
+    
+  end  
+    
+  
+  
 end
