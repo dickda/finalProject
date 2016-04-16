@@ -43,7 +43,7 @@
       <% end %>
        <a href = "#" id="addMoreImages" onclick="addImages();" class = "btn btn-primary center" style="color:white">Add More Images</a>
        
-  <div id="imagesGroup">
+  
     <div class="form-group">
     
  
@@ -102,12 +102,11 @@
   
     </div>
     
-    <%= f.fields_for :screenshots, @product.screenshots do |f_screenshot| %>
-    
-      <div class="col-sm-10">
-        <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]' %>
+    <div id="imagesGroup">
+    <div class="col-sm-10">
+    <%= file_field_tag :image, multiple: true, :name=>'product[screenshots_attributes][][image]' %>
       </div>
-    <% end %>
+
   </div>
   </div>
  
