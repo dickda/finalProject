@@ -1,12 +1,10 @@
-class ApplicationController < ActionController::Base
-      include CurrentCart
-    before_action :set_cart
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-
-  protect_from_forgery with: :null_session
-  def current_cart
-      #session[:cart_id] ||= Cart.create!.id
+module CurrentCart
+  extend ActiveSupport::Concern
+  
+  private
+  
+  def set_cart
+   #session[:cart_id] ||= Cart.create!.id
       #@current_cart ||= Cart.find(session[:cart_id])
     if session[:cart_id]
       @current_cart ||= Cart.find(session[:cart_id])

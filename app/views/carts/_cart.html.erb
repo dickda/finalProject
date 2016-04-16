@@ -1,0 +1,29 @@
+<h3 class = 'center'>Your Cart </h3>
+
+<% if  cart.line_items.length != 0 %>
+<div class = "table-responsive">
+<table id="line_items" class = "table table-striped table-condensed">
+  <tr>
+    <th>Product</th>
+    <th>Qty</th>
+    <th class="price">Unit Price</th>
+    <th class="price">Full Price</th>
+  </tr>
+   <%= render(cart.line_items) %>
+  <tr>
+    <td class="total price" colspan="4">
+      Total: <%= number_to_currency cart.total_price %>
+    </td>
+  </tr>
+</table>
+</div>
+<% else %>
+<p> You don't have anything in your cart.</p>
+<% end %>
+<p>
+ 
+  <% if  cart.line_items.length != 0 %>
+    <%= link_to "Checkout", cart.paypal_url(products_url, payment_notifications_url),  :class => 'btn btn-primary' %> 
+
+  <% end  %>
+</p>

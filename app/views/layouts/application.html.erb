@@ -9,7 +9,13 @@
 <body>
 <%= render 'layouts/navigation' %>
 <div class="container">
+  <div class = "col-md-9"> 
     <%= yield %>
+  </div>
+    
+  <div class = "hidden-xs col-md-3" id="cart">
+    <%= render @current_cart %>
+  </div>
 </div>
 <%= render 'layouts/footer' %>  
 
