@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 # https://u.osu.edu/hasnan.1/2014/03/30/rails-4-multiple-file-upload-with-carrierwave-nested-form-and-jquery-file-upload/
-# http://stackoverflow.com/questions/13538297/carrierwave-file-upload
+# http://stackoverflow.com/questions/13538297/carrierwave-file-uploda
     respond_to do |format|
       if @product.save
           if params[:screenshots_attributes]
@@ -70,6 +70,9 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    @product.screenshots.each do |i|
+      i.destroy
+    end
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
