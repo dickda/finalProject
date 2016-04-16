@@ -2,8 +2,13 @@ class LineItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @quantity = params[:quantity]
-    @line_item = LineItem.new(:cart => current_cart, :product => @product, :quantity => @quantity, :unit_price => @product.price)
-       
+    currentLineItem = LineItem.where(:product => params[:product_id], :cart => current_cart).first
+    if currentLineItem != nil
+      currentLineItem.quantity =  String(currentLineItem.quantity +  Integer(@quantity))
+      @line_item = currentLineItem
+    else
+      @line_item = LineItem.new(:cart => current_cart, :product => @product, :quantity => @quantity, :unit_price => @product.price)
+    end
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @product, notice: "Added  to cart."  }
@@ -13,8 +18,7 @@ class LineItemsController < ApplicationController
          format.hrml {render action 'new'}
          format.json {render json: @line_item.errors, status: :unprocessable_entity }
       end
-   end
-    #redirect_to current_cart_url
-    #redirect_to '/cart'
+    
+    end
   end
 end
