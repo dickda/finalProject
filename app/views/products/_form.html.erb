@@ -42,17 +42,75 @@
         Images
       <% end %>
        <a href = "#" id="addMoreImages" onclick="addImages();" class = "btn btn-primary center" style="color:white">Add More Images</a>
-
-  <div id="imagesGroup"
+       
+  <div id="imagesGroup">
     <div class="form-group">
+    
+ 
+    
+    
+    <div id = 'formImages'>
+    
+      <% if @product.screenshots.first.image.length != 0 %>
+      <% if @product.screenshots.first.image? %> 
+  
+              <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <% counter = 0 %>
+                <%  @product.screenshots.each do |i| %>
+                  <% if i != @product.screenshots.last %>
+                  <li data-target="#myCarousel" data-slide-to=<%= counter %> class="active"></li>
+                  <%counter = counter + 1 %>
+                  <% end %>
+              <%end%>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div id = 'formCarousel' class="carousel-inner" role="listbox">
+                <% counter = 0 %>
+                <%  @product.screenshots.each do |i| %>
+                <% if i != @product.screenshots.last %>
+                   <% if counter == 0 %>
+                      <div class="item active">
+                  <% else %>
+                      <div class="item">
+                  <% end %>
+                  
+                    <%= image_tag i.image_url(:thumb) %>
+                  
+                     <% counter = counter + 1 %>
+                  </div>
+                    <% end %>
+                <% end %>
+              </div>
+  
+  
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+     
+    <% end 
+    end %> 
+  
+    </div>
+    
     <%= f.fields_for :screenshots, @product.screenshots do |f_screenshot| %>
+    
       <div class="col-sm-10">
         <%= f_screenshot.file_field :image, multiple: true, :name=>'product[screenshots_attributes][][image]' %>
       </div>
     <% end %>
   </div>
   </div>
-   
+ 
  
   <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

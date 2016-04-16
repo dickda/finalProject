@@ -28,7 +28,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+# https://u.osu.edu/hasnan.1/2014/03/30/rails-4-multiple-file-upload-with-carrierwave-nested-form-and-jquery-file-upload/
+# http://stackoverflow.com/questions/13538297/carrierwave-file-upload
     respond_to do |format|
       if @product.save
           if params[:screenshots_attributes]

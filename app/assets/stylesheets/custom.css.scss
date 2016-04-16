@@ -87,6 +87,35 @@ div.description,.media-body p {
     margin: 20px;
   }
   
-  .thumbnail > img{
+ 
+  
+  .thumbnail > img {
     max-height:189px;
   }
+  
+  .prodPrice{
+    font-size:12px;
+  }
+
+ .outOfStock{
+      opacity: 0.4;
+      filter: alpha(opacity=40); /* msie */
+    }
+    
+    .outOfStockText{
+      margin-top: -50px;
+      margin-left: 50px;
+      color: grey;
+      font-size: 24px;
+      font-weight: bold;
+      left: 150px;
+      top: 350px;
+      
+    }
+    
+   #formImages{
+      max-height: 100px;
+      max-width: 100px;
+    }
+    
+   
