@@ -1,10 +1,15 @@
-<% if line_item == @current_item %>
-  <tr class="<%= cycle :odd, :even %>" id="current_item">
-<% else %>
-  <tr class="<%= cycle :odd, :even %>"> 
+<% if line_item.product == nil 
+  # item has been removed, and we need to remove it from the cart
+  line_item.destroy
+ else %>
+  <% if line_item == @current_item %>
+    <tr class="<%= cycle :odd, :even %>" id="current_item">
+  <% else %>
+    <tr class="<%= cycle :odd, :even %>"> 
+  <% end %>
+    <td><%=h link_to(line_item.product.title, line_item.product) %>  <%= image_tag line_item.product.screenshots.first.image_url(:smallThumb) if line_item.product.screenshots.length != 0 %> </td>
+    <td class="qty"><%= line_item.quantity %></td>
+    <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
+    <td class="price"><%= number_to_currency(line_item.full_price) %></td>
+  </tr>
 <% end %>
-  <td><%=h line_item.product.title %></td>
-  <td class="qty"><%= line_item.quantity %></td>
-  <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
-  <td class="price"><%= number_to_currency(line_item.full_price) %></td>
-</tr>
