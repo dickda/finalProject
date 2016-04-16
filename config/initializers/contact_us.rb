@@ -30,5 +30,7 @@ ContactUs.setup do |config|
   # Configure the parent action mailer
   # Example:
   # config.parent_mailer = "ActionMailer::Base"
+  
+ 
 
 end
