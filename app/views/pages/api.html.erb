@@ -1,0 +1,40 @@
+<h1>Developer API</h1> 
+<div>
+<h3> Products</h3>
+<div> 
+In order to add and modify products on the website please use the following API guide to assist you in your development.<br><br>
+</div>
+<div>
+  To view a list of products send an html GET request to <pre>/products.json</pre>
+  To display a product send html GET request to <pre>/products/<< productID >>.json</pre>
+  To delete a product send html DELETE request to <pre>/products/<< productID >>.json</pre>
+  To  create a new product, send an http POST request /products with a json object in the body of the request. <br>
+  Example:<br>
+  <pre>
+    POST /products HTTP/1.1 
+    Host: finalproject-daviddick-1.c9users.io
+    Content-Type: application/json
+    
+      { "title": "Product Title",
+        "description": "Your nice description",
+        "price": 1,
+        "stock": 1
+      }
+    </pre>
+
+  To modify an existing product send an HTML PUT request to /products/<< productID >>.json
+  <pre>
+    PUT /products/30.json HTTP/1.1
+    Host: finalproject-daviddick-1.c9users.io
+    Content-Type: application/json
+
+    {   "title": "Pens2",
+        "description": "Put your description here",
+        "price": 30,
+        "stock": 18
+      }
+  </pre>
+
+</div>
+
+</div>

@@ -13,7 +13,7 @@
     <%= yield %>
   </div>
     
-  <div class = "hidden-xs col-md-3" id="cart">
+  <div class = "hidden-xs col-md-3 col-sm-12" id="cart">
     <!-- We can't display the cart in the contact us form -->
     <% if params[:controller] != "contact_us/contacts" %>
       <%= render @current_cart%>
