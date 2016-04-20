@@ -5,7 +5,7 @@ class ProductTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @product = Product.create(title: "a title", description:"A valid description", price:55.56, stock:5,images:"testImage.jpg")
+    @product = Product.create(title: "a title", description:"A valid description", price:55.56, stock:5)
   end
   
   

@@ -18,7 +18,7 @@ class ScreenshotsControllerTest < ActionController::TestCase
 
   test "should create screenshot" do
     assert_difference('Screenshot.count') do
-      post :create, screenshot: { image: @screenshot.image }
+      post :create, screenshot: { image: @screenshot.image}
     end
 
     assert_redirected_to screenshot_path(assigns(:screenshot))

@@ -6,23 +6,20 @@ The shopping cart portion of this project was implinted heavily with the help of
 In addition content was gleaned from the Agile Web Development with Rails 4 book by Sam Ruby and Dave Thomas.
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+ruby 2.3.0p0 (2015-12-25 revision 53290)
 
 * System dependencies
+You may need to install the following to get images to work
+  sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev 
 
-* Configuration
 
 * Database creation
-  Run db:migrate
+  Run the command: rake db:migrate
 
 
 * How to run the test suite
-  run rake test
+  run the command: rake test
   
   
 Test Specifications:
@@ -42,16 +39,4 @@ images: array of strings
   
 
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-You may need to install the following to get images to work
-  sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev 
-  
-  
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
 
