@@ -1,5 +1,7 @@
 class ScreenshotsController < ApplicationController
   before_action :set_screenshot, only: [:show, :edit, :update, :destroy]
+      include CurrentCart
+    before_action :set_cart
 
   # GET /screenshots
   # GET /screenshots.json

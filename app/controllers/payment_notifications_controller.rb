@@ -1,10 +1,11 @@
 class PaymentNotificationsController < ApplicationController
   protect_from_forgery :except => [:create]
+
+
   # POST /payment_notifications
   # POST /payment_notifications.json
-
-  
   def create
+    #read in the notification of payment
     PaymentNotification.create!(:params => params, :cart_id => params[:invoice], :status => params[:payment_status], :transaction_id => params[:txn_id])
     #if a payment notification has been entered we need to subtract it from the number in the stock
     subtractProducts( params[:invoice], :status)

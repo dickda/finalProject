@@ -2,6 +2,9 @@ class LineItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @quantity = params[:quantity]
+    
+     # See if there is a line item already that has this product for this cart
+     # if so, just update the quanity, otherwise create a new line itme.
     currentLineItem = LineItem.where(:product => params[:product_id], :cart => current_cart).first
     if currentLineItem != nil
       currentLineItem.quantity =  String(currentLineItem.quantity +  Integer(@quantity))

@@ -1,3 +1,4 @@
+# This allows all controllers to access the current cart to display it on the sidebar
 module CurrentCart
   extend ActiveSupport::Concern
   

@@ -14,6 +14,7 @@ body { padding-top: 60px; }
 @import "bootswatch/flatly/bootswatch";
 
 
+//Basic CSS Settings
 #logo {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -98,20 +99,20 @@ div.description,.media-body p {
   }
 
  .outOfStock{
-      opacity: 0.4;
-      filter: alpha(opacity=40); /* msie */
-    }
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+ }
     
-    .outOfStockText{
-      margin-top: -50px;
-      margin-left: 50px;
-      color: grey;
-      font-size: 24px;
-      font-weight: bold;
-      left: 150px;
-      top: 350px;
-      
-    }
+.outOfStockText{
+  margin-top: -50px;
+  margin-left: 50px;
+  color: grey;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+  
+}
     
 
    

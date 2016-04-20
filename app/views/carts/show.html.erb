@@ -1,2 +1,4 @@
 <%= render @cart %>
- <%= link_to "Continue Shopping", products_url %> | <%= link_to 'Empty Cart', 'cart', method: :delete, data: {confirm: 'Are you sure?'} %>
+ <%= link_to "Continue Shopping", products_url %>  <% if @cart.line_items.first != nil %>
+ | <%=  link_to 'Empty Cart', 'cart', method: :delete, data: {confirm: 'Are you sure?'} %>
+ <% end %>

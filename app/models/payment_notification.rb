@@ -1,3 +1,4 @@
+# This class is used to recieve notification of payment or payment failure from Paypal. 
 class PaymentNotification < ActiveRecord::Base
   belongs_to :cart
   serialize :params

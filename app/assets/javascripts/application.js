@@ -17,6 +17,9 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
+/*
+Allow multi images to be uploaded
+*/
 function addImages() {
       document.getElementById("imagesGroup").innerHTML  = document.getElementById("imagesGroup").innerHTML  + '<div class="col-sm-10"><input type="file" id="product_screenshots_attributes_0_image" name="product[screenshots_attributes][][image]" multiple="multiple"></div>';
 }
